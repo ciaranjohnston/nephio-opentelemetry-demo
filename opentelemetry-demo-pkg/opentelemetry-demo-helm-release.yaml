@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: opentelemetry-demo
+  namespace: opentelemetry-demo
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: opentelemetry-demo
+      sourceRef:
+        kind: HelmRepository
+        name: opentelemetry-demo
+        namespace: opentelemetry-demo
+      reconcileStrategy: Revision
+      interval: 1m
+  targetNamespace: opentelemetry-demo
+  valuesFrom:
+  - kind: ConfigMap
+    name: opentelemetry-demo-values
+    valuesKey: values.yaml

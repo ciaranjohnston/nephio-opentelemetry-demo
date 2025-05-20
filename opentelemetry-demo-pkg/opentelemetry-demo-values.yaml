@@ -1,0 +1,7 @@
+kind: ConfigMap
+metadata:
+  name: opentelemetry-demo-values
+  namespace: opentelemetry-demo
+apiVersion: v1
+data:
+  values.yaml: |+
